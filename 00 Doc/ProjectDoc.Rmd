@@ -71,6 +71,8 @@ source("../03 Visualization/Visualization2.R", echo=TRUE)
 ```
 
 ##Step 6 
-Here's our third data wrangling. 
-
+Here's our third data wrangling. In this step we combined the data for Medicare and Unemployment. Since the Unemployment data had the full name of states while the Meicare data had the states' abbreviation we had to first join the Medicare and the States Abbreviation data sets. Once we created that join (dr4) we decided to modify the data from the Unemployed data set to show only the AGROUP total amounts so that when we did a full join between this new data frame and the Medicare table every row of the table would show the Hospital, the location and the data for the totality of that state's employment rate. Our final data frame is dr5 which is simple words is an outer join between Medicare and Unemployed data sets. 
+```{r}
+source("../02 Data Wrangling/DataWrangling3.R", echo=FALSE)
+```
 
