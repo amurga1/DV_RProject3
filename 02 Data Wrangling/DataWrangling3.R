@@ -8,3 +8,7 @@ View(tmp5)
 #Join the tmp5 (total population employed by state) with the hospital data
 dr5 <- dplyr::full_join(dr4, tmp5, by=c("STATE.y" = "STATE"))
 View(dr5)
+
+tmp6 <- dr5 %>% select(HOSPITAL_NAME, STATE, STATE.y, POP_EMPLOYED )%>% group_by(STATE, STATE.y, POP_EMPLOYED) %>% summarize(count = n_distinct(HOSPITAL_NAME))
+
+View(tmp6)
