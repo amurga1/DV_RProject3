@@ -1,11 +1,17 @@
 require("ggplot2")
-ggplot(data = dw1, 
-       mapping = aes(x=STATE, y=RATEUNEMPLO, color = AGROUP, fill = AGROUP)) +
-  scale_x_discrete() +
+require(extrafont)
+ggplot() + 
+  coord_cartesian() + 
+  scale_x_continuous() +
   scale_y_continuous() +
-  geom_bar(position = "dodge", stat="identity") +
-  labs(title='Average Raised Amount pr Category') +
-  labs(x=paste("STATE"), y=paste("rateunemploy")) +
-  layer(geom = "bar",
-        position = "dodge",
-        stat = "identity")
+  facet_grid(.~AGROUP, labeller=label_both) + 
+  labs(title='Revenue and Unemployment') +
+  labs(x="Revenue", y=paste("Unemployment Rate (%)")) +
+  layer(data=dw1, 
+        mapping=aes(x=as.numeric(as.character(REVENUE)), y=as.numeric(as.character(RATEUNEMPLO))), 
+        stat="identity", 
+        stat_params=list(), 
+        geom="point",
+        geom_params=list(), 
+        position=position_jitter(width=0.3, height=0)
+  )
