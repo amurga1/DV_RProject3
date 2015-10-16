@@ -1,18 +1,15 @@
 ---
-title: "ProjectDocument"
+title: "DVR_Project3"
 author: "Aura Maria Salazar, Adriana Murga"
 date: "October 16, 2015"
 output: html_document
 ---
 
-_Group Members: Aura Maria Salazar, Adriana Murga_
-
-#DVR_Project 3
 In this project we were given the task to find several data sets (csv files) that can be joined and that we are interested in. This project then shows the data we chose as well as interesting visualizations we created from joins of these data sets. 
 
-##The Steps
+#The Steps
 
-###Step 1
+##Step 1
 The first step to produce our project was to look for the data. We used 4 CSV files for this project. The first one included data from the GDP of each state. This file contained information about the revenue, debt, gross state product, real estate growth, and population of each state in the United States.
 The second csv file (Book1.csv) included data from unemployment levels at different states. The column names in this file included state name, number of population employed, number of population unemployed both in numbers and percentages of entire population. 
 The third file (Medicare Hospital Spending by Claim.csv) had information of different hospitals through different states in the United States. It includes information about the spending per hospital, per state and national as well. 
@@ -22,28 +19,28 @@ Finally, our last file was a simple table of state names and it corresponding ab
 Once we selected our data we begun to set up the data to create the oracle tables. We modified the R_ETL.R. file to load our csv files into our oracle dtabase. These files can be found under the folder named 01 Data with the names starting with 'Set up.'
 
 Here's a summary of what the different tables we created contained. You need to run the code in this file in order to proceed to get the data wranglings and visualizations to come. 
-#### Data of GDP
+### Data of GDP
 ```{r}
 source("../01 Data/Summary_Data_GDP.R", echo = TRUE)
 ```
 
-#### Data of Unemployment
+### Data of Unemployment
 ```{r}
 source("../01 Data/Summary_Data_Unemployed.R", echo = TRUE)
 ```
 
-#### Data of Medicare Spending
+### Data of Medicare Spending
 ```{r}
 source("../01 Data/Summary_Data_Medicare.R", echo = TRUE)
 ```
 
-#### Data of States' Abbreviation
+### Data of States' Abbreviation
 ```{r}
 source("../01 Data/Summary_Data_States.R", echo = TRUE)
 ```
 
 
-###Step 3
+##Step 3
 Once we had our data in place, with the tables created in Oracle, we continued by playing around with it and creating the joins required for this project. You can find our data wranglings in the folder 02 Data Wrangling. 
 
 The first data wrangling we created can be found in the file 'DataWrangling1.R' shown below. In this file we joined the Unemployment data (df1) with the GDP per state Data(df2) by 'STATE'. We created a new table that used the 'AGROUP' and 'RATEUNEMPLO' from the Unemployment table, and the 'Revenue' from the GDP table. 
@@ -53,7 +50,7 @@ source("../02 Data Wrangling/DataWrangling1.R", echo=TRUE)
 
 ```
 
-###Step 4 
+##Step 4 
 We then created a visualization for this data called 'Visualization1.R' Inthis visualization we generated a graph to see what the relationship between the state's revenue and the state's unemployment rate was, as well as if there was any difference between that relationship for men and for women. The graph was surprising in that it does not show a clear correlation between the state's revenue and the unemployment rate. The unemployment rate seems steady regardless of the revenue that the state is generating. On the other hand, the data does not show a significant difference between men and women's unemployment rates. 
 ```{r}
 source("../03 Visualization/Visualization1.R", echo=TRUE)
@@ -61,7 +58,7 @@ source("../03 Visualization/Visualization1.R", echo=TRUE)
 ```
 
 
-###Step 5
+##Step 5
 Here's our second data wrangling and the visualization we created for it. In this data wrangling we decided to make a left join between the Medicare data and the state abbreviation in order to be able to include the column of state abbreviation to then make an inner join between this table (dr2) with the GDP data (df2) by the state abbreviation.Below is the result of both joins. 
 ```{r}
 source("../02 Data Wrangling/DataWrangling2.R", echo=FALSE)
@@ -69,11 +66,11 @@ source("../02 Data Wrangling/DataWrangling2.R", echo=FALSE)
 
 Once we had created a table with the information of bothe the unemployment and medicare data sets we did a data wrangling to select the columns we desired and continued to build a visualization. Our visualization was a relationship between the number of hospitals per state (found in the Medicare data) and the population of such state (which was part of the GPD data). In this graph every dot represents a dot.We can see through this visualization that there is a clear linear relationship that shows a correlation between the number of hospitals and population, which is was the outcome we expected to have. 
 ```{r}
-source("../03 Visualizations/Visualization2.R", echo=TRUE)
+source("../03 Visualization/Visualization2.R", echo=TRUE)
 
 ```
 
-###Step 6 
+##Step 6 
 Here's our third data wrangling. 
 
 
