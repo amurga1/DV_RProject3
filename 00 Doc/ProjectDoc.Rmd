@@ -78,7 +78,7 @@ source("../02 Data Wrangling/DataWrangling3.R", echo=FALSE)
 To do our visualizations, we decided to build three different ones for it to be clearer how we compared everything. On the first one we show the states and the population that is employed in every state. The second one shows the number of hospitals per state and finally the last ones compares population employed and number of hospitals. We decided to make this comparison because we thought that it might be interesting to see if more people were unemployed there would be less hospitals for less people could actually afford a health plan, but surprisingly there is almost no correlation between these two factors. The number of hospitals doesnt seem to be affected by number of the population employed so our initial hypothesis was wrong. 
 
 ```{r}
-source("../03 Visualization/Visualization3(1).R", echo=FALSE)
-source("../03 Visualization/Visualization3(2).R", echo=FALSE)
-source("../03 Visualization/Visualization3(3).R", echo=FALSE)
+source("../03 Visualization/Visualization3(1).R", echo=TRUE)
+source("../03 Visualization/Visualization3(2).R", echo=TRUE)
+source("../03 Visualization/Visualization3(3).R", echo=TRUE)
 ```
